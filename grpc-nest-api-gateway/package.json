@@ -19,7 +19,7 @@
   "test:cov": "jest --coverage",
   "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
   "test:e2e": "jest --config ./test/jest-e2e.json",
-  "proto:install": "npm i git+https://github.com/YOUR_USERNAME/grpc-nest-proto.git",
+  "proto:install": "npm i git+https://github.com/ruslan1996r/grpc-nest-proto.git",
   "proto:auth": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./node_modules/grpc-nest-proto/proto --ts_proto_out=src/auth/ node_modules/grpc-nest-proto/proto/auth.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
   "proto:order": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./node_modules/grpc-nest-proto/proto --ts_proto_out=src/order/ node_modules/grpc-nest-proto/proto/order.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
   "proto:product": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./node_modules/grpc-nest-proto/proto --ts_proto_out=src/product/ node_modules/grpc-nest-proto/proto/product.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
@@ -32,6 +32,7 @@
   "@nestjs/core": "^7.6.15",
   "@nestjs/microservices": "^8.4.2",
   "@nestjs/platform-express": "^7.6.15",
+  "grpc-nest-proto": "github:ruslan1996r/grpc-nest-proto",
   "reflect-metadata": "^0.1.13",
   "rimraf": "^3.0.2",
   "rxjs": "^6.6.6"
@@ -60,13 +61,19 @@
   "typescript": "^4.2.3"
  },
  "jest": {
-  "moduleFileExtensions": [ "js", "json", "ts" ],
+  "moduleFileExtensions": [
+   "js",
+   "json",
+   "ts"
+  ],
   "rootDir": "src",
   "testRegex": ".*\\.spec\\.ts$",
   "transform": {
    "^.+\\.(t|j)s$": "ts-jest"
   },
-  "collectCoverageFrom": [ "**/*.(t|j)s" ],
+  "collectCoverageFrom": [
+   "**/*.(t|j)s"
+  ],
   "coverageDirectory": "../coverage",
   "testEnvironment": "node"
  }
